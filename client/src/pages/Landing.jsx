@@ -1,27 +1,36 @@
-import Navbar from '../components/Navbar';
-import HeroSection from '../components/HeroSection';
-import AboutSection from '../components/AboutSection';
-import SopeSection from '../components/SopeSection';
-import BenefitsSection from '../components/BenefitsSection';
-import EntrepreneurSection from '../components/EntrepreneurSection';
-import TestimonialsSection from '../components/TestimonialsSection';
-import CTASection from '../components/CTASection';
-import Footer from '../components/Footer';
+import Navbar from '../sections/Navbar';
+import HeroSection from '../sections/HeroSection';
+import AboutSection from '../sections/AboutSection';
+import SopeSection from '../sections/SopeSection';
+import ResponsiveSection from '../sections/ResponsiveSection';
+import SystemShowcaseSection from '../sections/SystemShowcaseSection';
+import BenefitsSection from '../sections/BenefitsSection';
+import EntrepreneurSection from '../sections/EntrepreneurSection';
+import TestimonialsSection from '../sections/TestimonialsSection';
+import CTASection from '../sections/CTASection';
+import ContactSection from '../sections/ContactSection';
+import Footer from '../sections/Footer';
+import WhatsAppFab from '../components/WhatsAppFab';
+import { colors, fontFamily } from '../theme';
 
 export default function Landing() {
   return (
-    <>
+    <div style={{ backgroundColor: colors.black, color: colors.white, fontFamily, minHeight: '100vh' }}>
       <Navbar />
       <main>
         <HeroSection />
         <AboutSection />
         <SopeSection />
+        <ResponsiveSection />
+        <SystemShowcaseSection />
         <BenefitsSection />
         <EntrepreneurSection />
         <TestimonialsSection />
         <CTASection />
+        <ContactSection />
       </main>
       <Footer />
-    </>
+      <WhatsAppFab />
+    </div>
   );
 }

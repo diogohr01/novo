@@ -1,0 +1,56 @@
+# Dependências
+node_modules/
+
+# Build / artefatos
+dist/
+dist-ssr/
+build/
+*.local
+
+# Vite
+.vite/
+
+# Ambiente (segredos — não versionar)
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# SQLite e arquivos auxiliares
+*.sqlite
+*.sqlite3
+*.db
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Testes / cobertura
+coverage/
+.nyc_output/
+
+# Editor e SO
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*~
+
+# Misc
+*.tsbuildinfo
+.cache/
+*.pem

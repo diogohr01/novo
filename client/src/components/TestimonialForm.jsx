@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { colors, spacing } from '../theme';
+import { colors, fontFamily, radii, spacing } from '../theme';
 import { useTestimonials } from '../context/TestimonialsContext';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 
@@ -38,33 +38,37 @@ export default function TestimonialForm() {
     width: '100%',
     boxSizing: 'border-box',
     padding: '12px 14px',
-    borderRadius: 10,
+    borderRadius: radii.sm,
     border: `1px solid ${colors.border}`,
     fontSize: 15,
     marginBottom: spacing.sm,
     outline: 'none',
-    fontFamily: 'inherit',
+    fontFamily,
+    backgroundColor: colors.cardElevated,
+    color: colors.white,
   };
 
   const labelStyle = {
     display: 'block',
     fontWeight: 600,
     fontSize: 14,
-    color: colors.dark,
+    color: colors.muted,
     marginBottom: 6,
   };
 
   const btn = {
     padding: '12px 22px',
-    borderRadius: 10,
+    borderRadius: radii.pill,
     fontWeight: 700,
     fontSize: 15,
     cursor: submitting ? 'wait' : 'pointer',
     border: 'none',
-    backgroundColor: btnHover ? colors.primary : colors.accent,
-    color: colors.white,
+    backgroundColor: btnHover ? colors.white : colors.accent,
+    color: btnHover ? colors.black : colors.black,
     opacity: submitting ? 0.75 : 1,
     width: isMobile ? '100%' : 'auto',
+    transform: btnHover && !submitting ? 'scale(1.02)' : 'scale(1)',
+    transition: 'transform 0.2s, background-color 0.2s',
   };
 
   return (
@@ -73,25 +77,34 @@ export default function TestimonialForm() {
       style={{
         marginTop: spacing.md,
         padding: spacing.md,
-        backgroundColor: colors.white,
-        borderRadius: 16,
+        backgroundColor: colors.card,
+        borderRadius: radii.lg,
         border: `1px solid ${colors.border}`,
         maxWidth: 520,
+        fontFamily,
       }}
     >
       <div
         style={{
           fontWeight: 700,
-          color: colors.dark,
+          color: colors.white,
           marginBottom: spacing.sm,
           fontSize: 18,
         }}
       >
         Envie seu depoimento
       </div>
-      <p style={{ margin: 0, marginBottom: spacing.sm, color: colors.muted, fontSize: 14 }}>
-        Quer reconhecer o impacto do Josias ou do SOPE? Sua mensagem pode
-        inspirar outras equipes.
+      <p
+        style={{
+          margin: 0,
+          marginBottom: spacing.sm,
+          color: colors.muted,
+          fontSize: 14,
+          lineHeight: 1.5,
+        }}
+      >
+        Quer reconhecer o impacto do Josias ou do SOPE? Sua mensagem pode inspirar outras
+        equipes.
       </p>
       <label style={labelStyle} htmlFor="t-name">
         Nome
@@ -120,7 +133,7 @@ export default function TestimonialForm() {
           style={{
             fontSize: 14,
             marginBottom: spacing.sm,
-            color: success ? colors.accent : '#c62828',
+            color: success ? colors.accent : '#ff6b6b',
             fontWeight: 600,
           }}
         >
